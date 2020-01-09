@@ -1,0 +1,14 @@
+
+<center><h1><font color="green">Hello geeks lets code now</font></h1></center>
+<table border="1px">
+{% for list_item , list_u1 in list_url %}
+    <tr>
+        <td>
+    {{list_item}}
+            </td>
+    <td>
+<a href={{list_u1}}>{{list_u1}}</a>
+    </td>
+    </tr>
+    {% endfor %}
+    </table>
