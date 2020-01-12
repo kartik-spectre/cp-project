@@ -26,29 +26,47 @@ button{
 }
 #rating_sup
 {
-	height: 140px;
+  background-image:url('https://cdn.hipwallpaper.com/i/98/4/QTnvxU.png');
+	height: 340px;
 	width: 300px;
 	border: solid black 1px;
 	border-radius: 5px 5px 0px 0px;
-}
-#rating_sub1
-{
-	height: 40px;
-	width: 300px;
-	border: solid black 1px;
-	border-radius: 5px 5px 0px 0px;
-}
-#rating_sub2
-{
-	height: 100px;
-	width: 300px;
-	border: solid black 1px;
+    margin-left:40%;
+    margin-top:5%;
+    position:relative;
 }
 input{
 	width: 80px;
 }
 p{
 	vertical-align:middle;
+}
+#logo
+{
+    z-index:1;
+    width:100px;
+    height:100px;
+    margin-top:3%;
+    margin-left:46.5%;
+    position:absolute;
+    border-radius:40px;
+}
+#user
+{
+  margin-top:40%;
+  margin-left:20%;
+}
+#pass
+{
+  margin-left:20%;
+}
+input
+{
+  padding:7px;
+  width:200px;
+}
+body
+{
 }
 </style></head>
 <body>
@@ -60,14 +78,16 @@ p{
 </div>
 </div>
 <br><br><br><br>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4sJrw1N2xdTpV05KS-6U59Le7cyQbBSrS7ff_oooEsMnq4KtA-A&s" id="logo">
 <div id="rating_sup">
-<div id="rating_sub1"><font color="blue" size="4"> <p><b>Filters problems</b></p></font></div>
-<div id="rating_sub2"><b> DIFFICULTY: </b>
-<p>
-<input type="text" width="80px">---
-<input type="text" width="80px">
-</p>
+<form action="{% url 'problemset' %}" method="get">
+  <input type="text" id="user" name="username" placeholder="username" required><br><br><br>
+  <input type="password" id="pass" name="pass" placeholder="password" required><br><br>
+
+  <input type="checkbox" checked="checked" name="remember" style="width:100px;"> <b><font color="red">Remember me</font></b><br><br>
+  <center> <a href="{% url 'problemset' %}"> <button>Login</button></a></center>
+</form>
 </div>
-</div>
+
 </body>
 </html>

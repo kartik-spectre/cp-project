@@ -19,6 +19,6 @@ from . import views
 
 urlpatterns = [
     path('',views.home),
-    path('problemset/',views.problemset),
+    path('problemset/',views.problemset,name='problemset'),
     path('problemset/tags/',views.tags ,name='tags'),
 ]
