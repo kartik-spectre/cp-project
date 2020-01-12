@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-from PIL import Image
+#from PIL import Image
 
 cf = 'https://codeforces.com'
 #query = {'q': 'Forest', 'order': 'popular', 'min_width': '800', 'min_height': '600'}

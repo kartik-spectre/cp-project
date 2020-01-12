@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from bs4 import BeautifulSoup
 import requests
-from PIL import Image
+#from PIL import Image
 
 def contest(request):
     cf = 'https://codeforces.com'
@@ -9,7 +9,7 @@ def contest(request):
     # params = "writing-first-c-program-hello-world-example"
     counter=1
     dict_url={}
-    req = requests.get(cf + '/problemset')
+    req = requests.get(cf + '/problemset',)
     soup = BeautifulSoup(req.text, "html.parser")
     results = soup.find("div", {"class": "pagination"})
     result = results.findAll("a")
@@ -23,7 +23,8 @@ def contest(request):
     while (x <= total):
 
         page = 'https://codeforces.com/problemset/page/' + str(x)
-        req = requests.get(page)  # ,params=params)
+        params = {'tags':'1500-1600'}
+        req = requests.get(page,params=params)
         soup = BeautifulSoup(req.text, "html.parser")
         # print(soup.prettify())
         results = soup.find("table", {"class": "problems"})
@@ -31,31 +32,23 @@ def contest(request):
         for item in links:
             flag = False
             item_text = item.findAll("td")
-            for txt in item_text:
-                text1 = txt.findAll("span", {"class": "ProblemRating"})
-                for txt2 in text1:
-                    txt3 = txt2.text
-                    # print(txt3)
-                    if txt3 == "1500":
-                        flag = True
-            if flag == True:
-                for td in item_text:
-                    find_div = td.find("div")
-                    if find_div is not None:
-                        url = find_div.find("a")
-                        # print(url)
-                        url1 = url.attrs["href"]
-                        text_url = url.text
-                        str1 = cf + url1
+            for td in item_text:
+                find_div = td.find("div")
+                if find_div is not None:
+                    url = find_div.find("a")
+                    # print(url)
+                    url1 = url.attrs["href"]
+                    text_url = url.text
+                    str1 = cf + url1
 
-                        # print(url1,text_url,1500)
-                        #print(str1)
+                    # print(url1,text_url,1500)
+                    #print(str1)
 
-                        dict_url [counter] =str1
-                        counter+=1
-                        #list_url.append(c)
-                        # print()
-                        break
+                    dict_url [counter] =str1
+                    counter+=1
+                    #list_url.append(c)
+                    # print()
+                    break
 
         x = x + 1
 
