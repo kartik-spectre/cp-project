@@ -76,18 +76,61 @@ body
   <a href="/problemset"> <button>  <b>PROBLEMSET</b>  </button> </a>
   <a href="/contests"><button><b>CONTESTS</b></button></a>
 </div>
-</div>
-<br><br><br><br>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4sJrw1N2xdTpV05KS-6U59Le7cyQbBSrS7ff_oooEsMnq4KtA-A&s" id="logo">
-<div id="rating_sup">
-<form action="{% url 'problemset' %}" method="get">
-  <input type="text" id="user" name="username" placeholder="username" required><br><br><br>
-  <input type="password" id="pass" name="pass" placeholder="password" required><br><br>
+<br>
+<br>
+<br>
+<center>
+<table border="1px" width="800px" class="problem_table" cols="2" style="border-radius:10px;">
+    <tr >
+    <td width="100px"><center>#</center></td>
+    <td width="600px"><b><center>Name</center></b></td>
+        <td width="100px"><center>Start</center></td>
+      <td width="100px"><center>Length</center></td>
 
-  <input type="checkbox" checked="checked" name="remember" style="width:100px;"> <b><font color="red">Remember me</font></b><br><br>
-  <center> <a href="{% url 'problemset' %}"> <button>Login</button></a></center>
-</form>
-</div>
+    </tr>
+{% for list_item , list_u1 in list_url %}
+    <tr>
+        <td width="100px">
+            <center>{{list_item}}</center>
+            </td>
+    <td width="600px">
+<a href={{ list_u1.3 }} style="text-decoration:none;" target="_blank">{{ list_u1.0 }}</a>
+    </td>
+        <td width="100px"><center>{{list_u1.1}}</center></td>
+       <td width="100px"><center>{{list_u1.2}}</center></td>
+
+    </tr>
+    {% endfor %}
+    </table>
+    </center>
+
+<center>
+    <br>
+    <br>
+    <br>
+<table border="1px" width="800px" class="problem_table" cols="2" style="border-radius:10px;">
+    <tr >
+    <td width="100px"><center>#</center></td>
+    <td width="600px"><b><center>Name</center></b></td>
+        <td width="100px"><center>Start</center></td>
+      <td width="100px"><center>End</center></td>
+
+    </tr>
+{% for list_item , list_u1 in list_url_cc %}
+    <tr>
+        <td width="100px">
+            <center>{{list_item}}</center>
+            </td>
+    <td width="600px">
+<a href={{ list_u1.1 }} style="text-decoration:none;" target="_blank">{{ list_u1.0 }}</a>
+    </td>
+        <td width="100px"><center>{{list_u1.2}}</center></td>
+       <td width="100px"><center>{{list_u1.3}}</center></td>
+
+    </tr>
+    {% endfor %}
+    </table>
+    </center>
 
 </body>
 </html>
