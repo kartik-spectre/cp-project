@@ -1,4 +1,3 @@
-cp-Tool
 Introduction
 This is a tool for beginners in the world of competitive programming. This provides perfect ladders to reach your targets in world of competitive Programming
 
